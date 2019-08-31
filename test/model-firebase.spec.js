@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {
   loginEmail,
   loginRegister,
@@ -11,15 +12,12 @@ import {
 const firebasemock = require('firebase-mock');
 
 const mockauth = new firebasemock.MockFirebase();
-// const mockfirestore = new firebasemock.MockFirestore();
 const mockdatabase = new firebasemock.MockFirebase();
-// mockfirestore.autoFlush();
 mockauth.autoFlush();
 global.firebase = firebasemock.MockFirebaseSdk(
   // use null if your code does not use RTDB
-  path => (path ? mockdatabase.child(path) : null),
+  path => (path ? mockdatabase.child(path) : mockdatabase),
   () => mockauth,
-  // () => mockfirestore,
 );
 
 // iniciando tests
@@ -60,8 +58,8 @@ describe('loginGoogle', () => {
     expect(typeof loginGoogle).toBe('function');
   });
   it('Debería poder Iniciar Sesión con una cuenta de Google', () => {
-    loginGoogle('etr604@gmail.com').then((user) => {
-      expect(user.providerData[0].providerId).toBe('google.com');
+    loginGoogle().then((user) => {
+      expect(user.isAnonymous).toBe('false');
     });
   });
 });
@@ -70,8 +68,8 @@ describe('loginFacebook', () => {
     expect(typeof loginFacebook).toBe('function');
   });
   it('Debería poder Iniciar Sesión con una cuenta de Facebook', () => {
-    loginFacebook('etr604@gmail.com').then((user) => {
-      expect(user.providerData[0].providerId).toBe('facebook.com');
+    loginFacebook().then((user) => {
+      expect(user.isAnonymous).toBe('false');
     });
   });
 });

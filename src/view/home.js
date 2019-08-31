@@ -10,14 +10,14 @@ export const viewHome = (arrPost) => {
     <img class="foods-kids" src="../img/foods-kids.png" alt="nombre foods kids de la página web"/>
       <ul class="main-nav">
         <li><a href="#/profile">${currentUser().displayName}</a></li>
-        <li><a href="#/home" id="cerrar"><img class="exit-img" src="../img/desconectarte.png">Cerrar Sesión </a></li>
+        <li><a href="#/home" id="cerrar"><img class="exit-img" src="../img/desconectarte.png" alt="icono que simboliza el cerrar sesión">Cerrar Sesión </a></li>
       </ul>
   </header>
   <main>
     <div class="container-user">
-      <img class="color-img" src="../img/fruit_1.jpg">
+      <img class="color-img" src="../img/fruit_1.jpg" alt="frutas tropicales">
       <div class="email-user">
-        <img class="img-perfil" src='${currentUser().photoURL}'/>
+        <img class="img-perfil" src="${currentUser().photoURL}" alt="foto de perfil extraida del email, google o facebook del usuario"/>
         <p class="select">${currentUser().email}</p>
       </div>
     </div>
@@ -26,7 +26,7 @@ export const viewHome = (arrPost) => {
         <textarea class="estilotextarea"name="comentarios" required  placeholder="¿Que quieres compartir?" id="comentario"></textarea>
         <div class= "options-post">
           <i class="btn-img fa fa-picture-o" aria-hidden="true"></i> 
-          <select id="post-privacy" >
+          <select class="pointer select" id="post-privacy" >
             <option value="public" id="public">Public</option>
             <option value="private" id="private">Private</option>
           </select>

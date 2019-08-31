@@ -3,10 +3,9 @@ import { controllerRegister } from '../controller.js';
 export const viewRegister = () => {
   const registerContainer = document.createElement('div');
   const registerTemplate = `  
-    <img class="logo" src="../img/icon1.png" alt="logo de la web foods kids"/>
-    <img class="img" src="../img/logo1.png" alt="logo food kids de la web"/>
+    <img class="logo" src="../img/circlenutri.png" alt="logo de la web foods kids"/>
     <form id="screen-register" class="flex-form">
-      <img class="foods-kids" src="../img/foods-kids.png" alt="nombre foods kids de la página web"/>
+    <img class="img" src="../img/logo1.png" alt="logo de la web food kids"/>
       <h1 class="welcome2">- Registro -</h1>
       <input class="inputs" type="text" name="name" id="name" placeholder="Name">
       <input class="inputs" type="email" name="email" id="email" placeholder="Email (*)">
