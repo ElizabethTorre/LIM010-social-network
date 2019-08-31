@@ -18,7 +18,7 @@ export const viewPosts = (objPost) => {
   if (objPost.privacidad === 'public' || objPost.idUsuario === currentUser().uid) {
     postTemplate = `   
       <div class="header-post">
-        <div class="flex-creador">
+        <div>
           <div class="flex-creador-privicity">
             <p id="nombre" class="creador">Publicado por ${objPost.email} | </p>
             <p id="privacidad-no-user">${objPost.privacidad}</p>
@@ -85,7 +85,6 @@ export const viewPosts = (objPost) => {
     }
     const like = postContainer.querySelector('#like');
     like.addEventListener('click', () => {
-      // like.classList.add('hide');
       const valor = objPost.like + 1;
       editLikes(objPost.id, valor);
     });

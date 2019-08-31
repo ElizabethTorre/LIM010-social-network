@@ -1,12 +1,10 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&Cormorant+Garamond|Montserrat&display=swap');
-/*font-family: 'Open Sans', sans-serif;
-font-family: 'Ubuntu', sans-serif;
-font-family: 'Montserrat', sans-serif; */
+
 * {
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 0.5px; 
-    font-size: 14px;
+    font-size: 13px;
     margin: 0;
     box-sizing: border-box;
 }
@@ -18,6 +16,9 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/*------------------ VIEW LOGIN -----------------------------*/
+
 .centerlogin{
     min-height: 100vh;
 }
@@ -35,8 +36,8 @@ body {
 .welcome {
     color: grey;
 }
-.welcome2 {
-    margin: 15px 0;  
+.logo, .welcome-description {
+    display: none;
 }
 .inputs {
     width: 275px;
@@ -63,12 +64,6 @@ body {
     background: #f2ea77;
     color: #d01818;
 }
-.icon-input {
-    background: black;
-    color: white;
-    width: max-content;
-    align-self: flex-end;
-}
 .facebook, .google {
     width: 40px;
 }
@@ -83,8 +78,11 @@ body {
 .registro {
     font-weight: bold;
 }
-.logo, .foods-kids, .welcome-description {
-    display: none;
+
+/*------------------------ VIEW REGISTER ---------------------------*/ 
+
+.welcome2 {
+    margin: 15px 0;  
 }
 .register-ok {
     font-size: 16px;
@@ -111,27 +109,6 @@ body {
     border: 1px solid #e41749;
     color: #e41749;
 }
-/* falta responsive */
-.container-home {
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    /* align-items: center; */
-    /* justify-content: center; */
-    flex-direction: column;
-}
-header {
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #f2ea77;
-    padding: 0 20px;
-}
-.exit-img {
-    width: 20px;
-    margin: 5px;
-}
 .error {
     color: #d01818;
     font-weight: bold;
@@ -142,17 +119,100 @@ header {
     color: #d01818;
     font-size: 14px;
 }
+
+/*---------------------- VIEW HOME ----------------------------*/
 main {
     flex: 1;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px 15px 0 15px;
 }
-.exit-input {
-    background: none;
-    border: none;
-    padding: 0;
-    color: darkslategray;
-    font-weight: bold;
+.container-home {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+
+header{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    background: #171505;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 0 25px;
+}
+.logo-bars {
+    display: flex;
+    align-items:center; 
+}
+.logo-bars img{
+    height: 40px;
+    margin: 1rem;
+}   
+.logo-bars label{
+    font-size: 20px;
+    margin: 0.5rem;
+    background: #e41749;
+    border-radius: 5px;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    color: white;
+}
+.navbar{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0;
+    top:80px;
+    transform:translateX(-100%);
+    background: #171505;
+} 
+.main-nav li {
+    list-style: none;       
+}
+.main-nav li a { 
+    line-height: 25px;   
+    display: block; 
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    font-weight: bold;    
+    border-top: 1px solid rgb(255,255,255,0.5);
+    align-items: center;
+    display: flex;
+}
+.main-nav li a:hover {
+    background: #f2ea77;
+    color: #171505;
+}
+#toggle:checked ~ .navbar {
+  transform:translateX(0%);
+}
+
+/* CONTENEDOR DE USUARIO */
+.container-user .color-img {
+    display: none;
+}
+.email-user {
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    align-items: center;
+}
+.img-perfil{
+    border-radius:50%;
+    width: 20%;
+    margin: 0 5px 0 0;
 }
 .select {
     background: transparent;
@@ -161,54 +221,38 @@ main {
     font-weight: bold;
     border-radius: 5px;
     outline: none;
+    width: min-content;
 }
-.exit-container {
-    display: flex;
-    justify-content: space-between;
-}
-.container-user {
-    margin-top: 20px;
-    border: 2px solid #f2ea77;
-    border-radius: 5px;
-    width: 280px;
-    height: 200px;
-    margin-right: 20px;
-}
-.color-img {
-    height: 50%;
+ /* BANDEJA PARA POSTEAR */
+.total {
     width: 100%;
-}
-.email-user {
-    display: flex;
-    justify-content: center;
-    height: 50%;
-    align-items: center;
 }
 .colunm-post {
     border: 2px solid #c1c1c1;
-    margin-top: 20px;
     border-radius: 5px;
     background: #f1f1f1;
- }
-.post{
-    margin-top: 25px;
-    border-radius: 3px;
+    margin-top: 20px;
     padding: 15px;
-    border: 1px solid;
-    width: 482px;
 }
-.header-post{
+.estilotextarea{
+    width: 100%;
+    height: 70px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 8px;
+}
+.options-post {
     display: flex;
     justify-content: space-between;
-    background: #f2ea77;
-    padding: 10px;
-    border-bottom: 1px solid rgb(192, 188, 188);
-}
-.comandos-post {
-    background: #f1f1f1;
-    display: flex;
     align-items: center;
-    padding: 10px;
+}
+.btn-img {
+    color: #f2ea77;
+    background: #e41749;
+    padding: 6px;
+    border-radius: 50%;
+    font-size: 15px;
 }
 .pointer{
     cursor: pointer;
@@ -222,25 +266,66 @@ main {
     background: #f2ea77;
     font-weight: bold;
 }
-.estilotextarea{
-    width: 500px;
-    height: 70px;
-    margin: 15px;
+.posts-content {
+    margin-top: 30px;
+}
+
+/*-------------------- VIEW POST -----------------------*/
+.container-posts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0;
+    border: 2px solid rgb(192, 188, 188);
     border-radius: 5px;
-    box-sizing: border-box;
-    padding: 8px;
 }
-/* .inpu{
-    margin:5px;
-    border-radius:8px;
-} */
-.img-perfil{
-    border-radius:50%;
-    width: 30%;
-    margin: 0 5px 0 0;
+.header-post{
+    display: flex;
+    justify-content: space-between;
+    background: #f2ea77;
+    padding: 10px;
+    border-bottom: 1px solid rgb(192, 188, 188);
 }
-.hide {
-    display: none;
+.flex-creador-privicity {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: darkslategray;
+}
+.creador {
+    font-weight: bold;
+}
+.clock {
+    font-size: 12px;
+    color: #e41749;
+}
+.delete {
+    color: darkslategray;
+    font-size: 22px;
+}
+.textarea-post {
+    background: white;
+    border: none;
+    border-bottom: 1px solid rgb(192, 188, 188);
+    padding: 10px;
+    height: 55px;
+}
+.comandos-post {
+    background: #f1f1f1;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 0 10px;
+}
+.count {
+    font-weight: bold;
+    margin: 0 10px;
+}
+.textarea-comment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f1f1;
+    padding: 10px;
 }
 .text-coment{
     height: 42px;
@@ -254,69 +339,13 @@ main {
     font-size: 22px;
     font-weight: bold;
     color: #e41749;
-    padding: 10px;
+    padding: 10px 0 10px 10px;
 }
-.options-post {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 15px 15px 15px;
-}
-.btn-img {
-    color: #f2ea77;
-    background: #e41749;
-    padding: 10px;
-    border-radius: 50%;
-    font-size: 18px;
-}
-.textarea-post {
-    background: white;
-    border: none;
-    border-bottom: 1px solid rgb(192, 188, 188);
-    padding: 10px;
-    height: 55px;
-}
-.posts-content {
-    margin-top: 30px;
-}
-.count {
-    font-weight: bold;
-    margin: 0 10px;
-}
-.creador {
-    font-weight: bold;
-}
-.clock {
-    font-size: 14px;
-    color: #e41749;
-}
-.clock-comment {
-    font-size: 12px;
-    color: darkslategray;
-}
-.clock-icon {
-    color: #e41749;
-}
-.email-comment {
-    font-size: 15px;
-    color: slategray;
-}
-.delete {
-    color: darkslategray;
-    font-size: 22px;
-}
-.textarea-comment {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.background {
     background: #f1f1f1;
-    padding: 10px 0;
 }
-.creador-comment {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-}
+
+/*----------------------- VIEW COMMENTS ----------------------*/
 .container-comment {
     text-align: center;
     padding: 10px;
@@ -325,16 +354,20 @@ main {
     margin: 8px;
     border: 3px solid #f2ea77;
 }
-.background {
-    background: #f1f1f1;
-}
-.container-posts {
-    width: 100%;
+.creador-comment {
     display: flex;
-    flex-direction: column;
-    margin: 25px 0;
-    border: 2px solid rgb(192, 188, 188);
-    border-radius: 5px;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.email-comment {
+    color: slategray;
+}
+.clock-comment {
+    font-size: 12px;
+    color: darkslategray;
+}
+.clock-icon {
+    color: #e41749;
 }
 .flex {
     display: flex;
@@ -350,43 +383,23 @@ main {
     font-size: 20px;
     color: dimgray;
 }
-.flex-creador-privicity {
-    display: flex;
-    font-weight: bold;
-    color: darkslategray;
-}
-.main-nav {
-    align-items: center;
-    display: flex;
-}
-.main-nav li{
-    list-style: none;
-    display: inline-block;    
-}
-.main-nav li a { 
-    text-decoration: none;
-    font-weight: bold;
-    padding: 0 10px;
-    align-items: center;
-    display: flex;
-    color: #2f4f4f;
-}
+
+/*--------------------- VIEW PROFILE ---------------------*/ 
 .form-profile {
-    width: 450px;
+    width: 280px;
     display: flex;
     flex-direction: column;
-    padding: 130px 0 25px;
+    padding: 25px;
     align-items: center;
     border-radius: 20px;
     font-weight: bold;
-    background: #f2ea77;
+    background: #fffffa;;
 }
 .img-profile {
-    width: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    position: absolute;
-    top: 150px;
-    border: 20px solid #f2ea77;
+    border: 20px solid #fffffa;
 }
 .label-profile {
     border: 1px solid #f2ea77;
@@ -396,7 +409,7 @@ main {
     color: darkslategray;
 }
 .name-profile {
-    font-size: 30px;
+    font-size: 20px;
 }
 .container-profile {
     min-height: 100vh;
@@ -404,12 +417,22 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('../img/fruit.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.hide {
+    display: none;
 }
 @media screen and (min-width:764px) {
     * {
-        font-size: 16px;
+        font-size: 15px;
     }
-    .logo, .foods-kids, .welcome-description {
+
+    /* VIEW LOGIN */
+
+    .logo, .welcome-description {
         display: block;
     }
     .logo {
@@ -441,6 +464,9 @@ main {
     .facebook, .google {
         width: 48px;
     }
+
+    /* VIEW REGISTER */
+
     .register-ok {
         font-size: 30px;
         color: #e41749;
@@ -450,5 +476,87 @@ main {
     }
     .ir-login {
         font-size: 18px;
+    }
+
+    /* HOME */
+    main {
+        flex-direction: row;
+        align-content: center;
+        margin-top: 100px;
+    }
+    header {
+        justify-content: space-between;
+        padding: 20px 40px 20px 20px;
+    }
+    .main-nav {
+        align-items: center;
+        display: flex;
+    }
+    .total {
+        width: 500px;
+    }
+    .logo-bars label{
+        display: none
+    }
+    .navbar {
+        position: static;
+        display: flex;
+        justify-content:flex-end;
+        width: auto;             
+        transform: translateX(0%);
+    }
+    nav ul li {
+        display: inline-block;      
+    }
+    .main-nav li a {
+        border-top: none;  
+        line-height: 80px;
+        padding:0 2rem;   
+    }
+    .container-user {
+        align-self: flex-start;
+        margin-right: 20px;
+        border: 2px solid #f2ea77;
+        border-radius: 5px;
+        width: 280px;
+        height: 200px;
+    }
+    .container-user .color-img {
+        display: block;
+        height: 50%;
+        width: 100%;
+    }
+    .colunm-post {
+        margin: 0;
+    }
+    .btn-img {
+        padding: 10px;
+        font-size: 18px;
+    }
+    .email-user {
+        display: flex;
+        justify-content: center;
+        height: 50%;
+        align-items: center;
+    }
+    .img-perfil {
+        width: 30%;
+    }
+
+    /* POSTS */
+    .clock, .email-comment {
+        font-size: 14px;
+    }
+    
+    .flex-creador-privicity {
+        flex-direction: row;
+    }
+    /* PERFIL */
+    .form-profile {
+        width: 400px;
+    }
+    .img-profile {
+        width: 250px;
+        height: 250px;
     }
 }

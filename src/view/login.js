@@ -10,7 +10,7 @@ export const viewLogin = () => {
   const loginTemplate = `  
   <img class="logo" src="../img/circlenutri.png" alt="circulo nutricional"/>
   <form id="screen-login" class="flex-form">
-    <img class="img" src="../img/logo1.png" alt="logo de la web food kids"/>
+    <img src="../img/logo1.png" alt="logo de la web food kids"/>
     <p class="welcome"> ¡Bienvenido!</p>
     <p class="welcome-description"> ¡Bienvenido a la red que te ayuda con la alimentación de los engreidos de casa!</p>
     <input class="inputs" type="email" name="correo" id="email" placeholder="Email">

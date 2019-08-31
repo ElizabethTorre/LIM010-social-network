@@ -7,11 +7,17 @@ export const viewHome = (arrPost) => {
   homeContainer.innerHTML = '';
   const homeTemplate = `  
   <header>
-    <img class="foods-kids" src="../img/foods-kids.png" alt="nombre foods kids de la página web"/>
+    <div class="logo-bars">
+      <label for="toggle"><i class="fa fa-bars" aria-hidden="true"></i></label>
+      <img src="../img/foods-kids.png" alt="nombre foods kids de la página web"/>
+    </div>
+    <input type="checkbox" class="hide" id="toggle">  
+    <nav class="navbar">  
       <ul class="main-nav">
         <li><a href="#/profile">${currentUser().displayName}</a></li>
-        <li><a href="#/home" id="cerrar"><img class="exit-img" src="../img/desconectarte.png" alt="icono que simboliza el cerrar sesión">Cerrar Sesión </a></li>
+        <li><a href="#/home" id="cerrar">Cerrar Sesión </a></li>
       </ul>
+    </nav> 
   </header>
   <main>
     <div class="container-user">
@@ -23,7 +29,7 @@ export const viewHome = (arrPost) => {
     </div>
     <div class="total">
       <div class="colunm-post">
-        <textarea class="estilotextarea"name="comentarios" required  placeholder="¿Que quieres compartir?" id="comentario"></textarea>
+        <textarea class="estilotextarea" name="comentarios" required  placeholder="¿Que quieres compartir?" id="comentario"></textarea>
         <div class= "options-post">
           <i class="btn-img fa fa-picture-o" aria-hidden="true"></i> 
           <select class="pointer select" id="post-privacy" >
