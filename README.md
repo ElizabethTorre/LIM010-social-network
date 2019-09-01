@@ -1,7 +1,7 @@
 # Foods Kids
 ¡Bienvenido a la red que te ayuda con la alimentación de los engreidos de casa!
 
-<img  src="./img/logo1.png"/>
+<img src="./img/logo1.png"/>
 
 **Foods Kids** es la web que llega para conectarte con miles de usuarios que comparten la inquietud y preocupación por la alimentación de los engreidos de casa, dándote recetas, tip, consejos y soluciones para que de una manera creativa incentivemos al consumo de aquellos alimentos necesarios para un buen crecimiento y desarrollo:
 
@@ -37,6 +37,5 @@ Una vez ingresado a la página, ésta será la vista en la que podrás postear l
 
 * Vista mobile
 
-![mobile_login](https://user-images.githubusercontent.com/51327685/64070711-408ba900-cc2d-11e9-9602-0a82fc9accaa.png)
-
-![mobile_home](https://user-images.githubusercontent.com/51327685/64070713-54370f80-cc2d-11e9-8700-e06e29e6fe9b.png)
+<img src="./img/mobile_login.png"/>
+<img src="./img/mobile_home.png"/>
