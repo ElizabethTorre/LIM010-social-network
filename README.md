@@ -37,5 +37,5 @@ Una vez ingresado a la página, ésta será la vista en la que podrás postear l
 
 * Vista mobile
 
-<img src="./img/mobile_login.png"/>
-<img src="./img/mobile_home.png"/>
+<img src="./img/mobile_login.png" width="200px"/>
+<img src="./img/mobile_home.png" width="250px"/>
