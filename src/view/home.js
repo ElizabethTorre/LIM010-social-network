@@ -23,7 +23,7 @@ export const viewHome = (arrPost) => {
     <div class="container-user">
       <img class="color-img" src="../img/fruit_1.jpg" alt="frutas tropicales">
       <div class="email-user">
-        <img class="img-perfil" src="${currentUser().photoURL}" alt="foto de perfil extraida del email, google o facebook del usuario"/>
+        <img class="img-perfil" src="${currentUser().photoURL ? `${currentUser().photoURL}` : '../img/user.png'}" alt="foto de perfil extraida del email, google o facebook del usuario"/>
         <p class="select">${currentUser().email}</p>
       </div>
     </div>
