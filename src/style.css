@@ -344,7 +344,11 @@ header{
 .background {
     background: #f1f1f1;
 }
-
+.first-post {
+    padding: 10px;
+    border-bottom: 1px solid rgb(192, 188, 188);
+    text-align: justify;
+}
 /*----------------------- VIEW COMMENTS ----------------------*/
 .container-comment {
     text-align: center;
@@ -383,7 +387,15 @@ header{
     font-size: 20px;
     color: dimgray;
 }
+.first-comment {
+    width: -webkit-fill-available;
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 5px;
+    border: 1px solid #c1c1c1;
+    text-align: start;
 
+}
 /*--------------------- VIEW PROFILE ---------------------*/ 
 .form-profile {
     width: 280px;
@@ -518,7 +530,7 @@ header{
         margin-right: 20px;
         border: 2px solid #f2ea77;
         border-radius: 5px;
-        width: 280px;
+        width: 300px;
         height: 200px;
     }
     .container-user .color-img {
@@ -540,7 +552,7 @@ header{
         align-items: center;
     }
     .img-perfil {
-        width: 30%;
+        width: 23%;
     }
 
     /* POSTS */
@@ -550,6 +562,9 @@ header{
     
     .flex-creador-privicity {
         flex-direction: row;
+    }
+    .first-post {
+        font-size: 14px;
     }
     /* PERFIL */
     .form-profile {

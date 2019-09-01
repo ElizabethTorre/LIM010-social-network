@@ -31,7 +31,8 @@ export const viewPosts = (objPost) => {
         </div>
         <i id="btn-delete" class="delete pointer fa fa-trash" aria-hidden="true"></i>
       </div>
-      <textarea class="textarea-post" name="comentarios" id="newcoment">${objPost.text}</textarea>
+      <p id="first-post" class="first-post">${objPost.text}</p>
+      <textarea class="hide textarea-post" name="comentarios" id="newcoment">${objPost.text}</textarea>
       <div class="comandos-post">
         <i id="like" class="btn-img pointer fa fa-heart-o" aria-hidden="true"></i>
         <p id="count" class="count" >${objPost.like}</p>
@@ -47,6 +48,7 @@ export const viewPosts = (objPost) => {
     postContainer.innerHTML = postTemplate;
     postContainer.classList.add('container-posts');
 
+    const firstPost = postContainer.querySelector('#first-post');
     const textArea = postContainer.querySelector('#newcoment');
     const editar = postContainer.querySelector('#editar');
     const eliminar = postContainer.querySelector('#btn-delete');
@@ -58,9 +60,7 @@ export const viewPosts = (objPost) => {
     if (objPost.idUsuario !== currentUser().uid) {
       eliminar.classList.add('hide');
       editar.classList.add('hide');
-      textArea.disabled = true;
     } else {
-      textArea.disabled = true;
       postPrivacyUser.classList.remove('hide');
       privacidadNoUser.classList.add('hide');
       postPrivacyUser.addEventListener('click', (event) => {
@@ -70,17 +70,23 @@ export const viewPosts = (objPost) => {
       eliminar.addEventListener('click', () => {
         deletePost(objPost.id);
       });
-      editar.addEventListener('click', () => {
+      editar.addEventListener('click', (e) => {
+        e.preventDefault();
         guardar.classList.remove('hide');
         editar.classList.add('hide');
-        textArea.disabled = false;
-        textArea.select();
+        firstPost.classList.add('hide');
+        textArea.classList.remove('hide');
       });
-      guardar.addEventListener('click', () => {
-        editPost(objPost.id, textArea.value);
-        editar.classList.remove('hide');
-        guardar.classList.add('hide');
-        textArea.disabled = true;
+      guardar.addEventListener('click', (e) => {
+        e.preventDefault();
+        const newTextPost = textArea.value;
+        if (newTextPost !== '') {
+          editPost(objPost.id, newTextPost);
+          firstPost.classList.remove('hide');
+          textArea.classList.add('hide');
+          editar.classList.remove('hide');
+          guardar.classList.add('hide');
+        }
       });
     }
     const like = postContainer.querySelector('#like');

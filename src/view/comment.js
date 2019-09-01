@@ -10,7 +10,8 @@ export const viewComment = (objComment) => {
       <p class="clock-comment"><i class="clock-icon fa fa-clock-o" aria-hidden="true"></i> ${objComment.time}</p>
     </div>
     <div class="flex">
-      <textarea id="comment" class="text-coment" type="text">${objComment.comentario}</textarea>
+      <p id="first-comment" class="first-comment">${objComment.comentario}</p>
+      <textarea id="comment" class="hide text-coment" type="text">${objComment.comentario}</textarea>
       <div class="flex-comment">
         <i id="btn-delete-comentario" class="buttons-comments pointer fa fa-trash" aria-hidden="true"></i>
         <i id="edit-coment" class="buttons-comments pointer fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -20,6 +21,8 @@ export const viewComment = (objComment) => {
     `;
   commentContainer.innerHTML = commentTemplate;
   commentContainer.classList.add('container-comment');
+
+  const firstComment = commentContainer.querySelector('#first-comment');
   const eliminar = commentContainer.querySelector('#btn-delete-comentario');
   const textArea = commentContainer.querySelector('#comment');
   const edit = commentContainer.querySelector('#edit-coment');
@@ -27,9 +30,7 @@ export const viewComment = (objComment) => {
   if (currentUser().email !== objComment.idUsuario) {
     eliminar.classList.add('hide');
     edit.classList.add('hide');
-    textArea.disabled = true;
   } else {
-    textArea.disabled = true;
     eliminar.addEventListener('click', () => {
       deleteComment(objComment.idPost, objComment.id);
     });
@@ -40,14 +41,20 @@ export const viewComment = (objComment) => {
       edit.addEventListener('click', () => {
         save.classList.remove('hide');
         edit.classList.add('hide');
-        textArea.disabled = false;
+        firstComment.classList.add('hide');
+        textArea.classList.remove('hide');
         textArea.select();
       });
-      save.addEventListener('click', () => {
-        editComment(objComment.idPost, objComment.id, textArea.value);
-        edit.classList.remove('hide');
-        save.classList.add('hide');
-        textArea.disabled = true;
+      save.addEventListener('click', (e) => {
+        e.preventDefault();
+        const newTextComment = textArea.value;
+        if (newTextComment !== '') {
+          editComment(objComment.idPost, objComment.id, newTextComment);
+          firstComment.classList.remove('hide');
+          textArea.classList.add('hide');
+          edit.classList.remove('hide');
+          save.classList.add('hide');
+        }
       });
     }
   }

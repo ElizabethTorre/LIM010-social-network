@@ -14,7 +14,7 @@ export const viewHome = (arrPost) => {
     <input type="checkbox" class="hide" id="toggle">  
     <nav class="navbar">  
       <ul class="main-nav">
-        <li><a href="#/profile">${currentUser().displayName}</a></li>
+        <li><a href="#/profile">${currentUser().displayName ? `${currentUser().displayName}` : `${currentUser().email}`}</a></li>
         <li><a href="#/home" id="cerrar">Cerrar Sesión </a></li>
       </ul>
     </nav> 
