@@ -48,7 +48,7 @@ describe('loginOut', () => {
   it('Debería poder Cerrar Sesión', () => {
     loginEmail('etr604@gmail.com', '123456').then(() => {
       loginOut().then((response) => {
-        expect(response).toBe('undefined');
+        expect(response).toBe(undefined);
       });
     });
   });
@@ -59,7 +59,7 @@ describe('loginGoogle', () => {
   });
   it('Debería poder Iniciar Sesión con una cuenta de Google', () => {
     loginGoogle().then((user) => {
-      expect(user.isAnonymous).toBe('false');
+      expect(user.isAnonymous).toBe(false);
     });
   });
 });
@@ -69,7 +69,7 @@ describe('loginFacebook', () => {
   });
   it('Debería poder Iniciar Sesión con una cuenta de Facebook', () => {
     loginFacebook().then((user) => {
-      expect(user.isAnonymous).toBe('false');
+      expect(user.isAnonymous).toBe(false);
     });
   });
 });
