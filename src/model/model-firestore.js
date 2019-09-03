@@ -42,7 +42,6 @@ const readComments = (idPost, callback) => {
       const data = [];
       datos.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
-        // console.log(data);
       });
       callback(data);
     });

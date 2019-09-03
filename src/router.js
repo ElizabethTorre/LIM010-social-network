@@ -16,11 +16,6 @@ const viewTmp = (router) => {
       root.appendChild(viewRegister());
       break;
     case '#/home':
-      // const call = (array1) => {
-      //   console.log(array1);
-      //   root.innerHTML = '';
-      //   root.appendChild(viewHome(array1));
-      // }
       readPosts((call) => {
         root.innerHTML = '';
         root.appendChild(viewHome(call));
