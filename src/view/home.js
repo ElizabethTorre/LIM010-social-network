@@ -31,7 +31,10 @@ export const viewHome = (arrPost) => {
       <div class="colunm-post">
         <textarea class="estilotextarea" name="comentarios" required  placeholder="¿Que quieres compartir?" id="comentario"></textarea>
         <div class= "options-post">
-          <i class="btn-img fa fa-picture-o" aria-hidden="true"></i> 
+          <label id="btn-file" >
+            <input type="file" name ="fichero" id="fichero" class="hide">
+            <i id="archivo" class="btn-img pointer fa fa-picture-o" aria-hidden="true"></i>
+          </label>
           <select class="pointer select" id="post-privacy" >
             <option value="public" id="public">Public</option>
             <option value="private" id="private">Private</option>
