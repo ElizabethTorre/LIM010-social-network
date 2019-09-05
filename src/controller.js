@@ -128,7 +128,6 @@ const twoDecimal = (num) => {
 };
 
 export const timePublic = (fullDate) => {
-  // const f = new Date();
   const mes = twoDecimal(fullDate.getMonth() + 1);
   const day = twoDecimal(fullDate.getDate());
   const year = twoDecimal(fullDate.getFullYear());
@@ -137,7 +136,6 @@ export const timePublic = (fullDate) => {
   const seconds = twoDecimal(fullDate.getSeconds());
   const cad = `${day}/${mes}/${year} - ${hour}:${minutes}:${seconds}`;
   console.log(cad);
-  // window.status = cad;
   return cad;
 };
 
