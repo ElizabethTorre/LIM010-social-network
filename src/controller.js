@@ -24,7 +24,6 @@ export const controllerLogin = () => {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
   loginEmail(email, password).then((result) => {
-    // observador();
     console.log(result);
     console.log(result.user.emailVerified);
     if (result.user.emailVerified === false) {
@@ -59,7 +58,6 @@ export const controllerRegister = () => {
     console.log(response);
     emailVerification();
     if (name !== '') {
-      // console.log(user);
       const newName = maysFirst(name.toLowerCase());
       document.getElementById('screen-register').innerHTML = `
       <h1 class="register-ok">Foods Kids agradece tu registro ${newName}!</h1>
@@ -74,7 +72,6 @@ export const controllerRegister = () => {
       <a class="ir-login" href="#/login" id="registrate">Ir a Log in</a>`;
     }
   }).catch((error) => {
-    // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
     if (errorMessage === 'The email address is badly formatted.') {
@@ -96,12 +93,10 @@ export const controllerRegister = () => {
 
 export const controllerExit = () => {
   loginOut().then((response) => {
-    // Sign-out successful.
     changeRoute('#/login');
     console.log('Saliendo....');
     console.log(response);
   }).catch((error) => {
-    // An error happened.
     console.log(error);
   });
 };

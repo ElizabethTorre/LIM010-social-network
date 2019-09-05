@@ -108,13 +108,6 @@ export const viewPosts = (objPost) => {
         });
     });
 
-    // const call = (dato) => {
-    //   coment.innerHTML = '';
-    //   dato.forEach(element => {
-    //     coment.appendChild(viewComment(element));
-    //   });
-    // };
-    // readComents(objPost.id, call);
     const comments = postContainer.querySelector('#comments-container');
     readComments(objPost.id, (dato) => {
       comments.innerHTML = '';
