@@ -98,7 +98,7 @@ export const viewPosts = (objPost) => {
     comentar.addEventListener('click', () => {
       const comentario = postContainer.querySelector('#comment-new').value;
       // console.log(comentario);
-      const date = timePublic();
+      const date = timePublic(new Date());
       addComment(comentario, currentUser().email, objPost.id, objPost.email, date)
         .then((response) => {
           postContainer.querySelector('#comment-new').value = '';

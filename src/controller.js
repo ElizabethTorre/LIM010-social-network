@@ -124,18 +124,33 @@ export const controllerGoogle = () => {
   });
 };
 
-export const timePublic = () => {
-  const f = new Date();
-  const mes = f.getMonth() + 1;
-  const cad = `${f.getDate()}/${mes}/${f.getFullYear()} - ${f.getHours()}:${f.getMinutes()}:${f.getSeconds()}`;
-  console.log(cad);
-  window.status = cad;
-  return window.status;
+const twoDecimal = (num) => {
+  let newNum = num;
+  if (newNum <= 9) {
+    newNum = `0${num}`;
+  }
+  return newNum;
 };
+
+export const timePublic = (fullDate) => {
+  // const f = new Date();
+  const mes = twoDecimal(fullDate.getMonth() + 1);
+  const day = twoDecimal(fullDate.getDate());
+  const year = twoDecimal(fullDate.getFullYear());
+  const hour = twoDecimal(fullDate.getHours());
+  const minutes = twoDecimal(fullDate.getMinutes());
+  const seconds = twoDecimal(fullDate.getSeconds());
+  const cad = `${day}/${mes}/${year} - ${hour}:${minutes}:${seconds}`;
+  console.log(cad);
+  // window.status = cad;
+  return cad;
+};
+
 export const createPost = () => {
   const comentario = document.getElementById('comentario').value;
   const privacidad = document.getElementById('post-privacy').value;
-  const date = timePublic();
+  // const f = new Date();
+  const date = timePublic(new Date());
   let likes = document.getElementById('contador');
   likes = 0;
   console.log(privacidad);
