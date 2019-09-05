@@ -510,6 +510,7 @@ header{
     }
     .total {
         width: 500px;
+        align-self: self-end;
     }
     .logo-bars label{
         display: none
